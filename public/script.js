@@ -7,6 +7,11 @@ async function flames(){
 
     var name_one = $('#firstname').val().toUpperCase();
     var name_two = $('#secondname').val().toUpperCase();
+    axios.post('http://localhost:3001/',{nameOne: name_one,nameTwo: name_two},{
+      headers: {
+        'Content-Type': 'application/json'
+      }});
+
     var flames = "FLAMES";
 
     var fName = name_one;
@@ -17,6 +22,7 @@ async function flames(){
 
     name_one.split(' ').join('');
     name_two.split(' ').join('');
+
 
 
     function replaceAt(string, index, replace) {
@@ -69,7 +75,6 @@ async function flames(){
     $("#nletters").text(count);
 
 
-    console.log(replacedNameOne.length);
 
 
     while (flames.length >1){
@@ -107,47 +112,41 @@ async function flames(){
         done = done+1;        
 
         var result = flames.join("");
-        console.log(result);
 
 
 
         if (done == 5){
 
           var number = Math.ceil(Math.random() * (3 - 1) + 1);
-          const music = new Audio(`songs/${result+number}.mp3`);
-          
-          music.addEventListener('ended', function() {
-            this.currentTime = 0;
-            music.play();
-            }, false);
-                
+          const music = new Audio(`songs/${result+number}.mp3`);                
           music.play();
+          music.loop = true;
 
 
 
             switch(result){
               case 'F':
-                $('#result').text('You are good friends');
+                $('#result').text('You two would be best friends for life.');
                 break;
       
               case 'L':
-                $('#result').text('Romeo and Juliet would get jealous of you');
+                $('#result').text('Romeo and Juliet would get jealous of you.');
                 break;
       
               case 'A':
-                $('#result').text('Both are affectionate with each other');
+                $('#result').text('Both are affectionate with each other.');
                 break;
       
               case 'M':
-                $('#result').text('You will be a good couple in the future');
+                $('#result').text('You will be a good couple in the future.');
                 break;
       
               case 'E':
-                $('#result').text('You are enemies');
+                $('#result').text('You are enemies.');
                 break;
       
               case 'S':
-                $('#result').text('You are meant to be siblings');
+                $('#result').text('You are meant to be siblings.');
                 break;
         
               default:

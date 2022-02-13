@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <title>FLAMES</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
 
         <div id="content">
 
-            <form method="post" action="/">
+            <form>
 
                 <label>Enter the First Name</label><br>
                 <input name="nameOne" type="text" id="firstname"/>
@@ -29,7 +30,7 @@
                 
                 <br>
                 
-                <button class="btn btn-danger" id="submit" type="submit" onclick="flames()">&#10084;</button>
+                <button class="btn btn-danger" id="submit" type="button" onclick="flames()">&#10084;</button>
                 
             </div>
         </form>

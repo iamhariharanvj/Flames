@@ -16,8 +16,8 @@ mongoose.connect('mongodb+srv://hariharanvj:passcode@flames.u30qw.mongodb.net/my
 const app = express();
 
 app.use(express.static('public'))
-app.use(bodyParser.urlencoded({extended: true}));
-app.set('view engine', 'ejs')
+// app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
 
@@ -30,22 +30,23 @@ app.post('/', (req, res) => {
         nameTwo: req.body.nameTwo,
 
     });
+    console.log(req);
     user.save((err)=>{
         if (!err){
             console.log('Success');
+            res.send('Success');
         }
         else{
             console.log(err.message);
 
         }
-        setTimeout(()=>{res.end()},10000000);
     });
 
 })
 
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.listen(port,()=>{
     console.log(`Listening on http://localhost:${port}`);
