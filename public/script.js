@@ -118,30 +118,30 @@ async function flames(){
           music.play();
           music.loop =true;
 
-          
+
             switch(result){
               case 'F':
-                result = 'You are good friends';
+                $('#result').text('You are good friends');
                 break;
       
               case 'L':
-                result = 'Romeo and Juliet would get jealous of you';
+                $('#result').text('Romeo and Juliet would get jealous of you');
                 break;
       
               case 'A':
-                result = 'Both are affectionate with each other';
+                $('#result').text('Both are affectionate with each other');
                 break;
       
               case 'M':
-                result = 'You will be a good couple in the future';
+                $('#result').text('You will be a good couple in the future');
                 break;
       
               case 'E':
-                result = 'You are enemies';
+                $('#result').text('You are enemies');
                 break;
       
               case 'S':
-                result = 'You are meant to be siblings';
+                $('#result').text('You are meant to be siblings');
                 break;
         
               default:
@@ -149,7 +149,7 @@ async function flames(){
 
             }
     
-          $('#result').text(result);
+          
           
           
 

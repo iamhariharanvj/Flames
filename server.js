@@ -20,6 +20,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
+
     res.render('index.html');
 })
 
@@ -27,7 +28,7 @@ app.post('/', (req, res) => {
     const user = new User({
         nameOne: req.body.nameOne,
         nameTwo: req.body.nameTwo,
-        
+
     });
     user.save((err)=>{
         if (!err){
