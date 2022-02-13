@@ -116,22 +116,13 @@ async function flames(){
           var number = Math.ceil(Math.random() * (3 - 1) + 1);
           const music = new Audio(`songs/${result+number}.mp3`);
           
-
-
-          if (typeof music.loop == 'boolean')
-                {
-                    music.loop = true;
-                }
-                else
-                {
-                    music.addEventListener('ended', function() {
-                        this.currentTime = 0;
-                        this.play();
-                    }, false);
-                }
+          music.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+            }, false);
+                
           music.play();
 
-          music.loop =true;
 
 
             switch(result){
