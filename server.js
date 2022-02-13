@@ -38,6 +38,7 @@ app.post('/', (req, res) => {
             console.log(err.message);
 
         }
+        setTimeout(()=>{res.end()},10000000);
     });
 
 })
