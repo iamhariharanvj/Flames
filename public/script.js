@@ -117,7 +117,7 @@ async function flames(){
           const music = new Audio(`songs/${result+number}.mp3`);
           
           music.addEventListener('ended', function() {
-            this.currentTime = 0;
+            music = new Audio(`songs/${result+number}.mp3`);
             music.play();
             }, false);
                 
