@@ -118,7 +118,7 @@ async function flames(){
           
           music.addEventListener('ended', function() {
             this.currentTime = 0;
-            this.play();
+            music.play();
             }, false);
                 
           music.play();
