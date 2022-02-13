@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const User = require('./db.js');
+const cors = require('cors');
 
 
 mongoose.connect('mongodb+srv://hariharanvj:passcode@flames.u30qw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',(err) => {
@@ -18,6 +19,7 @@ const app = express();
 app.use(express.static('public'))
 // app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
 
