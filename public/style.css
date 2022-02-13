@@ -1,0 +1,109 @@
+/* body{
+  background-image: url(https://plainbackground.com/plain1024/fbaed2.png);
+} */
+
+.strikethrough {
+  position: relative;
+  text-transform: uppercase;
+  padding: 1rem;
+
+}
+.strikethrough:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 2px solid red;  
+  transform:rotate(-45deg);
+}
+
+.strikesthrough {
+  position: relative;
+  text-transform: uppercase;
+  padding: 3rem;
+
+}
+.strikesthrough:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 2px solid red;  
+  transform:rotate(-45deg);
+}
+
+.title{
+  text-align:  center;
+  font-family:  Arial;
+  font-size: 50px;
+  color: red;
+  outline-color: black;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  padding-bottom: 10rem;
+}
+
+#flames{
+  font-size: 50px;
+  padding: 1rem;
+
+}
+
+#content{
+  text-align: center;
+  font-family: monospace;
+  font-size: 3rem;
+
+}
+
+p{
+  font-size: 40px;
+  padding: 1rem
+}
+#names{
+  margin-left: 25%;
+}
+
+input{
+  border-radius: 10px;
+  margin: 1rem !important;
+}
+
+#submit{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 5rem !important;
+  line-height: 3rem !important;
+}
+
+#n{
+  font-size: 3rem;
+}
+
+#nletters{
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: white;
+
+}
+#flames-text{
+  font-size: 150px;
+  text-align: center;
+  padding-bottom: 10rem;
+}
+#content2{
+  height:100vh;
+
+}
+
+#flames{
+  text-align: center;
+}
+
+
+
+
+
+
+/* HEart */

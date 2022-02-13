@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <title>FLAMES</title>
+</head>
+<body>
+    <div id="main">
+
+        <h1 class="title">FLAMES &#10084;</h1>
+
+        <div id="content">
+
+            <form method="post" action="/">
+
+                <label>Enter the First Name</label><br>
+                <input name="nameOne" type="text" id="firstname"/>
+                
+                <br>
+                
+                <label>Enter the Second Name</label><br>
+                <input name="nameTwo" type="text" id="secondname"/>
+                
+                <br>
+                
+                <button class="btn btn-danger" id="submit" type="submit" onclick="flames()">&#10084;</button>
+                
+            </div>
+        </form>
+            <br>
+
+        <div id="content2">
+
+            
+            <div id="names">
+            <p>Your  Name: &nbsp;<span id="fName"></span></p>
+            <p>Crush Name: &nbsp;<span id="SName"></span></p>
+            <p id="n">No of remaining letters: <span class="btn btn-danger" id="nletters"></span></p>
+        </div>
+        
+        <div id="flames">
+            <p id="flames-text"></p>
+            
+            
+            
+            <p id="result"></p>
+            
+        </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html> -->
+
+		<style>
+		body	{
+			background-color : #ffceed;
+		}
+		@keyframes heartfade {
+			0% {
+				opacity : 1;
+			}
+			50% {
+				opacity : 0;
+			}
+		}
+		.heart {
+			z-index : 999;
+			animation : heartfade 6s linear;
+			position : absolute; 
+		}
+		.heart:before,
+		.heart:after {
+			content : "";
+			background-color : #fc2a62;
+			position : absolute;
+			height : 30px;
+			width : 45px;
+			border-radius : 15px 0px 0px 15px;
+		}
+
+		.heart:before {
+			transform : rotate(45deg);
+		}
+
+		.heart:after {
+			left : 10.5px;
+			transform : rotate(135deg);
+		}
+		</style>
+	</head>
+
+	<script>
+		
+		var brd = document.createElement("DIV");
+		document.body.insertBefore(brd, document.getElementById("board"));
+
+		const duration = 3000;
+		const speed = 0.5;
+		const cursorXOffset = 0;
+		const cursorYOffset = 1500;
+
+		var hearts = [];
+		
+		function generateHeart(x, y, xBound, xStart, scale)
+		{
+			var heart = document.createElement("DIV");
+			heart.setAttribute('class', 'heart');
+			brd.appendChild(heart);
+			heart.time = duration;
+			heart.x = x;
+			heart.y = y;
+			heart.bound = xBound;
+			heart.direction = xStart;
+			heart.style.left = heart.x + "px";
+			heart.style.top = heart.y + "px";
+			heart.scale = scale;
+			heart.style.transform = "scale(" + scale + "," + scale + ")";
+			if(hearts == null)
+				hearts = [];
+			hearts.push(heart);
+			return heart;
+		}
+
+		var down = false;
+		var event = null;
+
+		document.onmousedown = function(e) {
+			down = true;
+			event = e;
+		}
+
+		document.onmouseup = function(e) {
+			down = true;
+		}
+
+		document.onmousemove = function(e) {
+			event = e;
+		}
+
+		document.ontouchstart = function(e) {
+			down = true;
+			event = e.touches[0];
+		}
+
+		document.ontouchend = function(e) {
+			down = true;
+		}
+
+		document.ontouchmove = function(e) {
+			event = e.touches[0];
+		}
+
+		var before = Date.now();
+		var id = setInterval(frame, 5);
+		var gr = setInterval(check, 350);
+        var gr2 = setInterval(check2,150);
+
+		function frame()
+		{
+			var current = Date.now();
+			var deltaTime = current - before;
+			before = current;
+			for(i in hearts)
+			{
+				var heart = hearts[i];
+				heart.time -= deltaTime;
+				if(heart.time > 0)
+				{
+					heart.y -= speed;
+					heart.style.top = heart.y + "px";
+					heart.style.left = heart.x + heart.direction * heart.bound * Math.sin(heart.y * heart.scale / 30) / heart.y * 200 + "px";
+				}
+				else
+				{
+					heart.parentNode.removeChild(heart);
+					hearts.splice(i, 1);
+				}
+			}
+		}
+
+		function check()
+		{
+			if(down)
+			{
+				var start = 1 - Math.round(Math.random()) * 2;
+				var scale = Math.random() * Math.random() * 0.8 + 0.2;
+				var bound = 30 + Math.random() * 20;
+				generateHeart(Math.random()*screen.width, Math.random()*screen.height, bound, start, scale);
+			}
+		}
+
+        function check2()
+		{
+			if(down)
+			{
+				var start = 1 - Math.round(Math.random()) * 2;
+				var scale = Math.random() * Math.random() * 0.8 + 0.2;
+				var bound = 30 + Math.random() * 20;
+				generateHeart(event.pageX - brd.offsetLeft + cursorXOffset, event.pageY - brd.offsetTop + cursorYOffset, bound, start, scale);
+			}
+		}
+	</script>
