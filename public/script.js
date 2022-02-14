@@ -7,7 +7,7 @@ async function flames(){
 
     var name_one = $('#firstname').val().toUpperCase();
     var name_two = $('#secondname').val().toUpperCase();
-    axios.post('http://localhost:3001/',{nameOne: name_one,nameTwo: name_two},{
+    axios.post('/',{nameOne: name_one,nameTwo: name_two},{
       headers: {
         'Content-Type': 'application/json'
       }});
