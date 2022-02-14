@@ -49,7 +49,9 @@
   padding: 1rem;
 
 }
-
+label{
+  font-size: 3rem !important;
+}
 #content{
   text-align: center;
   font-family: monospace;
@@ -88,7 +90,7 @@ input{
 
 }
 #flames-text{
-  font-size: 10rem;
+  font-size: 8rem;
   text-align: center;
   padding-bottom: 10rem;
 }
