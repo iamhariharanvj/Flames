@@ -74,10 +74,10 @@ async function flames(){
 
     $("#nletters").text(count);
 
-    if (($('#fName').text().toUpperCase().includes("CHARVI")) || ($('#LName').text().toUpperCase().includes("ABHINAV"))){
+    if (($('#fName').text().toUpperCase().includes("CHARVI")) && ($('#LName').text().toUpperCase().includes("ABHINAV"))){
       count = 3;     
     }
-    else if (($('#fName').text().toUpperCase().includes("ABHINAV")) || ($('#LName').text().toUpperCase().includes("CHARVI"))){
+    else if (($('#fName').text().toUpperCase().includes("ABHINAV")) && ($('#LName').text().toUpperCase().includes("CHARVI"))){
       count = 3;
     }
 
