@@ -7,11 +7,7 @@ async function flames(){
 
     var name_one = $('#firstname').val().toUpperCase();
     var name_two = $('#secondname').val().toUpperCase();
-    axios.post('/',{nameOne: name_one,nameTwo: name_two},{
-      headers: {
-        'Content-Type': 'application/json'
-      }});
-
+    
     var flames = "FLAMES";
 
     var fName = name_one;
@@ -20,8 +16,8 @@ async function flames(){
     var replacedLettersOne = [];
     var replacedLettersTwo = [];
 
-    name_one.split(' ').join('');
-    name_two.split(' ').join('');
+    name_one = name_one.split(' ').join('');
+    name_two = name_two.split(' ').join('');
 
 
 
@@ -73,13 +69,6 @@ async function flames(){
     var count = replacedNameOne.length + replacedNameTwo.length;
 
     $("#nletters").text(count);
-
-    if (($('#fName').text().toUpperCase().includes("CHARVrI")) || ($('#LName').text().toUpperCase().includes("ABHINAV"))){
-      count = 3;     
-    }
-    else if (($('#fName').text().toUpperCase().includes("ABHINAV")) || ($('#LName').text().toUpperCase().includes("CHArRVI"))){
-      count = 3;
-    }
 
 
 
